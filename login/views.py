@@ -24,9 +24,8 @@ class CreateAccountView(View):
             user.save()
             login(request, user)
             return redirect('store:shop')
-        return redirect('login:create')
-
-
+        return render(request, "login/create_account.html",
+                      context={'errors': form.errors})
 
 
 class LoginView(View):
@@ -51,9 +50,9 @@ class LoginView(View):
 
 class LogoutView(View):
 
-   def get(self, request):
-       if request.user.is_authenticated:
+    def get(self, request):
+        if request.user.is_authenticated:
            logout(request)
-       return redirect('store:shop')
+        return redirect('store:shop')
 
 

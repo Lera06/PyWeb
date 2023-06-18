@@ -15,7 +15,11 @@
 							<i class="fa fa-user-o" aria-hidden="true"></i>
 						</span>
 					</div>
-
+					{% if error %}
+						<span class="text-left p-t-8 p-b-20">
+						{{error}}
+						</span>
+					{% endif %}
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100"></span>

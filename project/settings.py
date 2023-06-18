@@ -24,13 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-)b84c9fy-3*0avntzw5v6@hlqf)$jbtrjutjd6_p9t)gl21@ep'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG') == 'true'
-
-ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS').split(',')]
+#DEBUG = os.getenv('DEBUG') == 'true'
+DEBUG = True
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS').split(',')]
 
 
 # Application definition
@@ -89,11 +90,11 @@ DATABASES = {
     },
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('NAME_PGDB'),
-        'USER': os.getenv('USER_PGDB'),
-        'PASSWORD': os.getenv('PASSWORD_PGDB'),
-        'HOST': os.getenv('HOST_PGDB'),
-        'PORT': os.getenv('PORT_PGDB'),
+        'NAME': 'VegetableStore_VM',
+        'USER': 'pguser',
+        'PASSWORD': 'Pa$$w0rd',
+        'HOST': 'vpngw.avalon.ru',
+        'PORT': 5432,
     },
 }
 
@@ -116,6 +117,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = [
+   'store.backends.CustomAuthBackend',
+   'django.contrib.auth.backends.ModelBackend',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

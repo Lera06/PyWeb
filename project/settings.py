@@ -88,13 +88,17 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'VegetableStore_VM',
-        'USER': 'pguser',
-        'PASSWORD': 'Pa$$w0rd',
-        'HOST': 'vpngw.avalon.ru',
-        'PORT': 5432,
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'VegetableStore_VM',
+    #     'USER': 'pguser',
+    #     'PASSWORD': 'Pa$$w0rd',
+    #     'HOST': 'vpngw.avalon.ru',
+    #     'PORT': 5432,
+    # },
+    'test': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'test_db.sqlite3',
     },
 }
 
